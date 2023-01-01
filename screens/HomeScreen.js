@@ -1,11 +1,13 @@
 import { View, Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native'
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import {
     AdjustmentsVerticalIcon, ChevronDownIcon, MagnifyingGlassIcon, UserIcon
 } from 'react-native-heroicons/outline'
 import { useNavigation } from '@react-navigation/native'
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
+import sanityClient from '../sanity'
+
 
 const HomeScreen = () => {
     const navigation = useNavigation()
@@ -16,9 +18,27 @@ const HomeScreen = () => {
             headerShown: false,
         })
     }, [])
+
+    useEffect(() => {
+        sanityClient.fetch(`
+        *[_type == 'featured']{
+                ...,
+            restaurants[]->{
+                ...,
+                dishes[]->,
+            }
+            }
+            `
+        ).then(data => { setFeaturedCategories(data) })
+    }, [])
     return (
-        <SafeAreaView className='border border-lime-500 bg-white '>
+
+        <SafeAreaView className='border border-lime-500 bg-white ' >
             <View className='' >
+                {/* {
+                    console.log(featuredCategories)
+
+                } */}
                 {/* Header */}
                 <View View className=' mb-0 flex-row items-center space-x-2 mx-4 pt-4 ' >
                     <Image
@@ -62,7 +82,7 @@ const HomeScreen = () => {
                 <Categories />
 
                 {/* Featured Rows */}
-                {/* {featuredCategories?.map(category => (
+                {featuredCategories?.map(category => (
 
 
                     <FeaturedRow
@@ -72,9 +92,9 @@ const HomeScreen = () => {
                         description={category.short_description}
                     />
 
-                ))} */}
+                ))}
 
-                <FeaturedRow
+                {/* <FeaturedRow
                     id="1"
                     title='Tasty Discounts'
                     description='Pegueloooo'
@@ -83,7 +103,7 @@ const HomeScreen = () => {
                     id="1"
                     title='Offers near you!'
                     description='Pegueloooo'
-                />
+                /> */}
 
             </ScrollView>
 

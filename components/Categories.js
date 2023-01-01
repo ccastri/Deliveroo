@@ -1,9 +1,22 @@
-import React from 'react'
+import sanityClient, { urlFor } from '../sanity'
+import React, { useEffect, useState } from 'react'
 import { ScrollView, Text, View } from 'react-native'
 import CategoryCard from './CategoryCard'
 
-
+// deployedURL = 'https://deliveroo-fixed.sanity.studio/'
 const Categories = () => {
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        sanityClient
+            .fetch(
+                `
+            *[_type == 'category']
+            `
+            )
+            .then(data => setCategories(data))
+    }, [])
+
     return (
         <ScrollView
             contentContainerStyle={{
@@ -14,10 +27,16 @@ const Categories = () => {
             showsHorizontalScrollIndicator={false}
         >
             {/* <Text>El castri asegurando el futuro</Text> */}
-            <CategoryCard
-                imgUrl='https://links.papareact.com/gn7'
-                title='Pegueloooo'
-            />
+            {categories?.map((category) => (
+
+
+                <CategoryCard
+                    key={category._id}
+                    imgUrl={urlFor(category.image).width(200).url()}
+                    title={category.name}
+                />
+
+            ))}
             <CategoryCard
                 imgUrl='https://links.papareact.com/gn7'
                 title='Pegueloooo'
