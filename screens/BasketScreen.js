@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView, Alert, Modal, Pressable } from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView, Alert, Modal, Pressable, TextInput } from 'react-native'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
@@ -27,7 +27,7 @@ const BasketScreen = () => {
         setGroupedItemsInBasket(groupedItems)
         // console.log(groupedItemInBasket);
     }, [items])
-    const [splittedCheck, setSplittedCheck] = useState({})
+    const [splittedCheck, setSplittedCheck] = useState(items)
     const [isPressed, setIsPressed] = useState(false)
     console.log(splittedCheck)
     return (
@@ -103,6 +103,21 @@ const BasketScreen = () => {
                                 </TouchableOpacity>} */}
                             </TouchableOpacity>
                         ))}
+                    {splittedCheck.pax ? (
+                        <>
+
+                            {Object.entries(splittedCheck).forEach((item, i) => {
+
+                                <View
+                                    key={i}
+                                >
+                                    <Text> {item}</Text>
+                                </View>
+                            })}
+                        </>
+                    ) : (
+                        <></>
+                    )}
                     {/* {
                         Object.entries(groupedItemsInBasket).map(([key, items]) => (
                         <View
@@ -153,17 +168,24 @@ const BasketScreen = () => {
                             onRequestClose={() => {
                                 Alert.alert('Modal has been closed.');
                                 setModalVisible(!modalVisible);
+                                setSplittedCheck({})
                             }}>
                             <View className='flex-1 justify-center items-center' >
                                 <View className='bg-white rounded-xl p-[35px] h-[250px] items-center shadow-[#000]' >
 
-                                    <Text>How many people you want to split it?</Text>
-                                    <TouchableOpacity><Text>3</Text></TouchableOpacity>
+                                    <Text>How many people you want to split it for?</Text>
+                                    <TextInput
+                                        type='text'
+                                        placeholder='Add a number to split accounts'
 
+                                        value={splittedCheck.pax}
+                                        onChangeText={(text) => setSplittedCheck({ ...splittedCheck, pax: text })}
+                                        className='w-80 p-4 top-4 bg-gray-200  rounded-full items-center '
+                                    ></TextInput>
                                     <Pressable
-                                        className='bg-[#F194FF] p-4 w-[120px] mt-8 items-center  rounded-full '
+                                        className='bg-[#00ccbb] p-4 w-[120px] mt-8 items-center  rounded-full '
                                         onPress={() => setModalVisible(!modalVisible)}>
-                                        <Text >Forget it!</Text>
+                                        <Text >Split it!</Text>
                                     </Pressable>
                                 </View>
                             </View>
