@@ -54,7 +54,7 @@ export default function RestaurantScreen() {
     return (
         <>
             <BasketIcon
-                onPress={() => { }} />
+                onPress={() => { navigation.navigate('Basket') }} />
             <ScrollView>
                 <View className="relative">
 

@@ -7,12 +7,12 @@ import { addToBasket, removeFromBasket, selectBasketItemsById } from '../feature
 import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/outline';
 
 const DishRow = ({ id, name, description, price, image }) => {
-    console.log(id)
+
     const [isPressed, setIsPressed] = useState(false)
     const dispatch = useDispatch()
 
     const items = useSelector(state => selectBasketItemsById(state, id))
-    // console.log(items);
+
     const addItemToBasket = () => {
         dispatch(addToBasket({ id, name, description, price, image }))
     }
@@ -28,7 +28,6 @@ const DishRow = ({ id, name, description, price, image }) => {
 
             <TouchableOpacity
                 onPress={() => setIsPressed(!isPressed)}>
-                {console.log(isPressed)}
                 <View className='flex-row p-4'>
                     <View className='flex-1 pr-2'>
                         <Text className='text-lg mb-1'>{name}</Text>

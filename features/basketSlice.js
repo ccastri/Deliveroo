@@ -26,6 +26,20 @@ export const basketSlice = createSlice({
 
             state.items = newBasket;
         },
+        splitFromBasket: (state, action) => {
+            const index = state.items.findIndex(item => item.id === action.payload.id)
+            console.log(index)
+            // let newBasket = [...state.items]
+            // if (index >= 0) {
+            //     newBasket.splice(index, 1)
+            // } else {
+
+            //     console.warn(`Product (id:${id}) cannot be removed. It's not yer in the basket`)
+            // }
+
+
+            // state.items = newBasket;
+        },
         // incrementByAmount: (state, action) => {
         //     state.value += action.payload
         // },
@@ -42,4 +56,6 @@ export const selectBasketItemsById = (state, id) =>
 
 export const selectBasketTotal = state => state.basket.items.reduce((total, item) =>
     total += item.price, 0)
+// export const selectBasketSplittedTotal = state => state.basket.items.reduce((total, item) =>
+//     total += item.price, 0)
 export default basketSlice.reducer
