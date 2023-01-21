@@ -7,29 +7,43 @@ import { selectRestaurant } from '../features/restaurantSlice'
 import { XCircleIcon } from 'react-native-heroicons/outline'
 import { urlFor } from '../sanity'
 import Currency from 'react-currency-formatter';
+import Splitter from '../components/Splitter'
+// import { selectPerson } from '../features/splittedCheckSlice'
 
 
 const BasketScreen = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const navigation = useNavigation()
-    const restaurant = useSelector(selectRestaurant)
-    const items = useSelector(selectBasketItems)
-    const splitItems = [...items]
-    const basketTotal = useSelector(selectBasketTotal)
     const dispatch = useDispatch();
-    const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([])
-    useEffect(() => {
-        const groupedItems = items.reduce((results, item) => {
-            (results[item.id] = results[item.id] || []).push(item);
-            return results
-        }, {});
+    const restaurant = useSelector(selectRestaurant)
+    // const person = useSelector(selectPerson)
+    const items = useSelector(selectBasketItems)
+    const basketTotal = useSelector(selectBasketTotal)
+    const [splittedCheck, setSplittedCheck] = useState({ ...items, pax: 0 })
+    const paxNum = parseInt(splittedCheck.pax)
 
-        setGroupedItemsInBasket(groupedItems)
-        // console.log(groupedItemInBasket);
-    }, [items])
-    const [splittedCheck, setSplittedCheck] = useState(items)
-    const [isPressed, setIsPressed] = useState(false)
-    console.log(splittedCheck)
+
+    const splitScreen = (index) => {
+        let splittedScreen = []
+        let personID = []
+        for (let i = 0; i < (index); i++) {
+            [personID.push(i + 1)]
+
+            splittedScreen.push(
+                <TouchableOpacity className='flex-1 w-full flex-row'
+                    onPress={() => {
+                        navigation.navigate('SplittedBill'),
+                            { personID }
+                    }}
+                    key={i}>
+                    <Text> Persona {i + 1}:</Text>
+                    <Splitter />
+                </TouchableOpacity>)
+        }
+        console.log(personID)
+        return splittedScreen
+    }
+
     return (
         <SafeAreaView className='flex-1 bg-white'>
             <View className='flex-1 bg-gray-100'>
@@ -68,8 +82,7 @@ const BasketScreen = () => {
                                 key={i}
                                 className='flex-row items-center space-x-3 bg-white py-2 px-5'
                                 onPress={() => {
-                                    setSplittedCheck({ ...splitItems, item });
-                                    setIsPressed(!isPressed)
+                                    // setIsPressed(!isPressed)
                                 }
                                 }
                             >
@@ -103,48 +116,9 @@ const BasketScreen = () => {
                                 </TouchableOpacity>} */}
                             </TouchableOpacity>
                         ))}
-                    {splittedCheck.pax ? (
-                        <>
+                    {/*          //*! I'm working here        */}
+                    {splitScreen(paxNum)}
 
-                            {Object.entries(splittedCheck).forEach((item, i) => {
-
-                                <View
-                                    key={i}
-                                >
-                                    <Text> {item}</Text>
-                                </View>
-                            })}
-                        </>
-                    ) : (
-                        <></>
-                    )}
-                    {/* {
-                        Object.entries(groupedItemsInBasket).map(([key, items]) => (
-                        <View
-                            key={key}
-                            className='flex-row items-center space-x-3 bg-white py-2 px-5'
-                        >
-                            <Text>{items.length} X</Text>
-                            <Image
-                                source={{
-                                    uri: urlFor(items[0]?.image).url(),
-                                }}
-                                className='h-12 w-12 rounded-full'
-                            />
-                            <Text className='flex-1'>{items[0].name}</Text>
-                            <Text className='text-gray-600'>
-                                <Currency quantity={items[0]?.price} currency='COP' />
-                            </Text>
-                            <TouchableOpacity>
-                                <Text
-                                    className='text-[#00ccbb] text-xs'
-                                    onPress={() => dispatch(removeFromBasket({ id: key }))}
-                                >
-                                    Remove
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                    ))} */}
                 </ScrollView>
                 <View className='p-5 bg-white mt-5 space-y-4'>
                     <View className='flex-row justify-between'>
@@ -175,7 +149,8 @@ const BasketScreen = () => {
 
                                     <Text>How many people you want to split it for?</Text>
                                     <TextInput
-                                        type='text'
+                                        type='numeric'
+                                        keyboardType='numeric'
                                         placeholder='Add a number to split accounts'
 
                                         value={splittedCheck.pax}

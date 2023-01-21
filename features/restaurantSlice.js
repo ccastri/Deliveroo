@@ -30,9 +30,4 @@ export const { setRestaurant } = restaurantSlice.actions
 
 export const selectRestaurant = (state) => state.restaurant.restaurant
 
-// export const selectBasketItemsById = (state, id) =>
-//     state.restaurant.items.filter(item => item.id === id)
-
-// export const selectBasketTotal = state => state.restaurant.items.reduce((total, item) =>
-//     total += item.price, 0)
 export default restaurantSlice.reducer

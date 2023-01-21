@@ -9,21 +9,16 @@ export const basketSlice = createSlice({
     initialState,
     reducers: {
         addToBasket: (state, action) => {
-
             state.items = [...state.items, action.payload] //lo que sea que tenias mas lo nuevo que llegue x payload
         },
         removeFromBasket: (state, action) => {
             const index = state.items.findIndex(item => item.id === action.payload.id)
-
             let newBasket = [...state.items]
             if (index >= 0) {
                 newBasket.splice(index, 1)
             } else {
-
                 console.warn(`Product (id:${id}) cannot be removed. It's not yer in the basket`)
             }
-
-
             state.items = newBasket;
         },
         splitFromBasket: (state, action) => {
@@ -33,11 +28,8 @@ export const basketSlice = createSlice({
             // if (index >= 0) {
             //     newBasket.splice(index, 1)
             // } else {
-
             //     console.warn(`Product (id:${id}) cannot be removed. It's not yer in the basket`)
             // }
-
-
             // state.items = newBasket;
         },
         // incrementByAmount: (state, action) => {
