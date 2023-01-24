@@ -10,14 +10,12 @@ import Currency from 'react-currency-formatter';
 import GroupedItemsByPerson from '../components/GroupedItemsByPerson'
 import { selectBasketByPersonTotal, selectPerson } from '../features/splittedCheckSlice'
 
-const BasketScreen = () => {
+const BasketByPersonScreen = () => {
     // const [modalVisible, setModalVisible] = useState(false);
     const navigation = useNavigation()
-    const dispatch = useDispatch();
     const restaurant = useSelector(selectRestaurant)
     const person = useSelector(selectPerson)
-    console.log(person);
-    const items = useSelector(selectBasketItems)
+    // console.log(person.items.filter(item => item.id));
     const basketByPersonTotal = useSelector(selectBasketByPersonTotal)
 
 
@@ -52,7 +50,9 @@ const BasketScreen = () => {
                     </TouchableOpacity>
                 </View>
                 <ScrollView className='divide-y divide-gray-200'>
-                    <GroupedItemsByPerson />
+                    <GroupedItemsByPerson
+                        item={person.items.filter(item => item.id)}
+                    />
                 </ScrollView>
                 <View className='p-5 bg-white mt-5 space-y-4'>
                     <View className='flex-row justify-between'>
@@ -80,4 +80,4 @@ const BasketScreen = () => {
     )
 }
 
-export default BasketScreen
+export default BasketByPersonScreen

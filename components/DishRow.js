@@ -12,12 +12,11 @@ const DishRow = ({ id, name, description, price, image }) => {
     const dispatch = useDispatch()
     console.log(id);
     const items = useSelector(state => selectBasketItemsById(state, id))
-    const itemsByPerson = useSelector(state => selectBasketItemsByCostumer(state, id))
     const person = useSelector(selectPerson)
-    // console.log(person)
-    const addItemToBasketByPerson = () => {
 
+    const addItemToBasketByPerson = () => {
         dispatch(addToBasketByPerson({ id, name, description, price, image }))
+        dispatch(addToBasket({ id, name, description, price, image }))
     }
     const removeItemFromPersonalBasket = () => {
         if (!person.items.length > 0) {
@@ -39,7 +38,6 @@ const DishRow = ({ id, name, description, price, image }) => {
 
     return (
         <>
-
             <TouchableOpacity
                 onPress={() => setIsPressed(!isPressed)}>
                 <View className='flex-row p-4'>
@@ -60,7 +58,6 @@ const DishRow = ({ id, name, description, price, image }) => {
                     </View>
                 </View>
             </TouchableOpacity>
-
             <View>
                 {isPressed &&
                     <View className='pl-2 flex-row items-center space-x-2'>
@@ -84,13 +81,13 @@ const DishRow = ({ id, name, description, price, image }) => {
                             <View className='pl-2 flex-row items-center space-x-2'>
                                 <TouchableOpacity>
                                     <MinusCircleIcon
-                                        disabled={!items.length}
+                                        disabled={!person.items.length}
                                         onPress={removeItemFromPersonalBasket}
                                         color={person.items.length > 0 ? '#00ccbb' : 'gray'}
                                         size={40}
                                     />
                                 </TouchableOpacity>
-                                <Text>{person.items.length}</Text>
+                                <Text>{person.items.filter(item => item.id === id).length}</Text>
                                 <TouchableOpacity>
                                     <PlusCircleIcon
                                         onPress={addItemToBasketByPerson}

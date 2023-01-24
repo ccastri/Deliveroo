@@ -7,13 +7,14 @@ import Currency from 'react-currency-formatter';
 import { selectBasketItemsByCostumer, selectPerson } from '../features/splittedCheckSlice'
 
 
-const Splitter = () => {
+const GroupedItemsByPerson = ({ item }) => {
     const items = useSelector(selectBasketItemsByCostumer)
     const dispatch = useDispatch()
     const person = useSelector(selectPerson)
     const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([])
 
-
+    // console.log(groupedItems)
+    // console.log(id)
     useEffect(() => {
         const groupedItems = person.items.reduce((results, item) => {
             (results[item.id] = results[item.id] || []).push(item);
@@ -32,7 +33,7 @@ const Splitter = () => {
                         key={key}
                         className='flex-row items-center space-x-3 bg-white py-2 px-5'
                     >
-                        <Text>{person.items.length} X</Text>
+                        <Text>{items.length} X</Text>
                         <Image
                             source={{
                                 uri: urlFor(items[0]?.image).url(),
@@ -59,4 +60,4 @@ const Splitter = () => {
     )
 }
 
-export default Splitter
+export default GroupedItemsByPerson

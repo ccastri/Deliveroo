@@ -13,10 +13,6 @@ import { urlFor } from '../sanity'
 export default function RestaurantScreen() {
     const dispatch = useDispatch();
     const navigation = useNavigation()
-    // const person = 
-    const items = useSelector(selectBasketItems)
-    const itemsByID = useSelector(selectBasketItemsById)
-    // console.log(person);
     const [modalVisible, setModalVisible] = useState(false);
     const [tableMember, setTableMember] = useState(useSelector(selectPerson));
 
@@ -57,16 +53,12 @@ export default function RestaurantScreen() {
             headerShown: false,
         })
     }, [])
-
-    // console.log(person)
-    // console.log(tableMember)
     return (
         <>
             <BasketIcon
                 onPress={() => { navigation.navigate('Basket') }} />
             <ScrollView>
                 <View className="relative">
-
                     <Image
                         source={{
                             uri: urlFor(imgUrl).url(),
@@ -78,14 +70,6 @@ export default function RestaurantScreen() {
                         className=" bg-gray-100 rounded-full absolute top-14 left-5 p-2" >
                         <ArrowLeftIcon size={20} color="#00ccbb" />
                     </TouchableOpacity>
-                    {/* <TouchableOpacity
-                        onPress={navigation.navigate}
-                        className=" bg-gray-100 rounded-full absolute top-14 right-5 p-2" > 
-                    </TouchableOpacity> */}
-                    {/* Modal for adding new table members */}
-
-
-
                 </View>
                 <View className='bg-white'>
                     <View className='px-4 pt-4'>
@@ -97,7 +81,6 @@ export default function RestaurantScreen() {
                                     <Text className='text-green-500'>{rating}</Text> · {genre}
                                 </Text>
                             </View>
-
                             <View className='items-center flex-row space-x-1'>
                                 <MapPinIcon color='gray' opacity={0.4} size={22} />
                                 <Text className='text-xs text-gray-500'>Nearby · {address}</Text>
@@ -158,7 +141,6 @@ export default function RestaurantScreen() {
                         dishes.map(dish => <DishRow
                             key={dish._id}
                             id={dish._id}
-
                             name={dish.name}
                             description={dish.short_description}
                             price={dish.price}

@@ -11,9 +11,8 @@ import Splitter from '../components/Splitter'
 import { selectPerson } from '../features/splittedCheckSlice'
 
 const BasketScreen = () => {
-    // const [modalVisible, setModalVisible] = useState(false);
+
     const navigation = useNavigation()
-    const dispatch = useDispatch();
     const restaurant = useSelector(selectRestaurant)
     const person = useSelector(selectPerson)
     console.log(person);
