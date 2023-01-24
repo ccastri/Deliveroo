@@ -5,9 +5,9 @@ import { ArrowLeftIcon, ChevronRightIcon, MapPinIcon, QuestionMarkCircleIcon, St
 import { useDispatch, useSelector } from 'react-redux'
 import BasketIcon from '../components/BasketIcon'
 import DishRow from '../components/DishRow'
-import { selectBasketItems } from '../features/basketSlice'
+import { selectBasketItems, selectBasketItemsById } from '../features/basketSlice'
 import { setRestaurant } from '../features/restaurantSlice'
-import { selectPerson, selectPersonName, setPerson, } from '../features/splittedCheckSlice'
+import { selectPerson, selectPersonName, setPerson } from '../features/splittedCheckSlice'
 import { urlFor } from '../sanity'
 
 export default function RestaurantScreen() {
@@ -15,9 +15,12 @@ export default function RestaurantScreen() {
     const navigation = useNavigation()
     // const person = 
     const items = useSelector(selectBasketItems)
+    const itemsByID = useSelector(selectBasketItemsById)
     // console.log(person);
     const [modalVisible, setModalVisible] = useState(false);
-    const [tableMember, setTableMember] = useState(useSelector(selectPersonName));
+    const [tableMember, setTableMember] = useState(useSelector(selectPerson));
+
+    console.log(tableMember.tableMember)
     const {
         params: {
 
@@ -126,7 +129,7 @@ export default function RestaurantScreen() {
                                     type='text'
                                     // keyboardType='numeric'
                                     placeholder={`Add a the costumer's to split accounts`}
-                                    value={tableMember}
+                                    value={tableMember.tableMember}
                                     onChangeText={(text) => setTableMember({ ...tableMember, tableMember: text })}
                                     className='w-80 p-4 top-4 bg-gray-200  rounded-full items-center '
                                 />
@@ -135,10 +138,7 @@ export default function RestaurantScreen() {
                                     <TouchableOpacity
                                         onPress={() => {
                                             setModalVisible(!modalVisible)
-                                            dispatch(setPerson({
-                                                tableMember,
-                                                items
-                                            }))
+                                            dispatch(setPerson(tableMember))
                                         }}>
                                         <UserPlusIcon color='#00ccbb' opacity={0.6} size={30} />
                                     </TouchableOpacity>

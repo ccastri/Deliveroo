@@ -5,18 +5,25 @@ import { urlFor } from '../sanity';
 import { useDispatch, useSelector } from 'react-redux'
 import { addToBasket, removeFromBasket, selectBasketItemsById } from '../features/basketSlice';
 import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/outline';
-import { addToBasketByPerson, selectPerson, setPerson } from '../features/splittedCheckSlice'
+import { addToBasketByPerson, removeFromPersonalBasket, selectBasketItemsByCostumer, selectPerson, setPerson } from '../features/splittedCheckSlice'
 const DishRow = ({ id, name, description, price, image }) => {
 
     const [isPressed, setIsPressed] = useState(false)
     const dispatch = useDispatch()
-
+    console.log(id);
     const items = useSelector(state => selectBasketItemsById(state, id))
+    const itemsByPerson = useSelector(state => selectBasketItemsByCostumer(state, id))
     const person = useSelector(selectPerson)
-    console.log(person)
+    // console.log(person)
     const addItemToBasketByPerson = () => {
 
         dispatch(addToBasketByPerson({ id, name, description, price, image }))
+    }
+    const removeItemFromPersonalBasket = () => {
+        if (!person.items.length > 0) {
+            return;
+        }
+        dispatch(removeFromPersonalBasket({ id, name, description, price, image }))
     }
     const addItemToBasket = () => {
 
@@ -28,6 +35,7 @@ const DishRow = ({ id, name, description, price, image }) => {
         }
         dispatch(removeFromBasket({ id, name, description, price, image }))
     }
+
 
     return (
         <>
@@ -55,10 +63,8 @@ const DishRow = ({ id, name, description, price, image }) => {
 
             <View>
                 {isPressed &&
-
                     <View className='pl-2 flex-row items-center space-x-2'>
                         <TouchableOpacity>
-
                             <MinusCircleIcon
                                 disabled={!items.length}
                                 onPress={removeItemFromBasket}
@@ -74,14 +80,26 @@ const DishRow = ({ id, name, description, price, image }) => {
                                 size={40}
                             />
                         </TouchableOpacity>
-                        <Text>{person.items.length}</Text>
-                        <TouchableOpacity>
-                            <PlusCircleIcon
-                                onPress={addItemToBasketByPerson}
-                                color='#00ccbb'
-                                size={40}
-                            />
-                        </TouchableOpacity>
+                        {person.tableMember && (
+                            <View className='pl-2 flex-row items-center space-x-2'>
+                                <TouchableOpacity>
+                                    <MinusCircleIcon
+                                        disabled={!items.length}
+                                        onPress={removeItemFromPersonalBasket}
+                                        color={person.items.length > 0 ? '#00ccbb' : 'gray'}
+                                        size={40}
+                                    />
+                                </TouchableOpacity>
+                                <Text>{person.items.length}</Text>
+                                <TouchableOpacity>
+                                    <PlusCircleIcon
+                                        onPress={addItemToBasketByPerson}
+                                        color='#00ccbb'
+                                        size={40}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        )}
                     </View>
                 }
 

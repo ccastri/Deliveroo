@@ -7,8 +7,8 @@ import { selectRestaurant } from '../features/restaurantSlice'
 import { XCircleIcon } from 'react-native-heroicons/outline'
 import { urlFor } from '../sanity'
 import Currency from 'react-currency-formatter';
-import Splitter from '../components/Splitter'
-import { selectPerson } from '../features/splittedCheckSlice'
+import GroupedItemsByPerson from '../components/GroupedItemsByPerson'
+import { selectBasketByPersonTotal, selectPerson } from '../features/splittedCheckSlice'
 
 const BasketScreen = () => {
     // const [modalVisible, setModalVisible] = useState(false);
@@ -18,7 +18,7 @@ const BasketScreen = () => {
     const person = useSelector(selectPerson)
     console.log(person);
     const items = useSelector(selectBasketItems)
-    const basketTotal = useSelector(selectBasketTotal)
+    const basketByPersonTotal = useSelector(selectBasketByPersonTotal)
 
 
 
@@ -51,22 +51,21 @@ const BasketScreen = () => {
                         </Text>
                     </TouchableOpacity>
                 </View>
-
                 <ScrollView className='divide-y divide-gray-200'>
-                    <Splitter />
+                    <GroupedItemsByPerson />
                 </ScrollView>
                 <View className='p-5 bg-white mt-5 space-y-4'>
                     <View className='flex-row justify-between'>
                         <Text className='text-gray-400'>Subtotal</Text>
-                        <Text className='text-gray-400'><Currency quantity={basketTotal} currency='COP' /></Text>
+                        <Text className='text-gray-400'><Currency quantity={basketByPersonTotal} currency='COP' /></Text>
                     </View>
                     <View className='flex-row justify-between'>
                         <Text className='text-gray-400'>Tip:10% (optional)</Text>
-                        <Text className='text-gray-400'><Currency quantity={basketTotal * 0.10} currency='COP' /></Text>
+                        <Text className='text-gray-400'><Currency quantity={basketByPersonTotal * 0.10} currency='COP' /></Text>
                     </View>
                     <View className='flex-row justify-between mb-4'>
                         <Text className='   '>Order Total</Text>
-                        <Text className='font-extrabold'><Currency quantity={basketTotal + 5000} currency='COP' /></Text>
+                        <Text className='font-extrabold'><Currency quantity={basketByPersonTotal + 5000} currency='COP' /></Text>
                     </View>
                     <TouchableOpacity
                         className='rounded-lg bg-[#00ccbb] p-4'

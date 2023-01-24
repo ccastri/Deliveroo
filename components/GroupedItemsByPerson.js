@@ -4,16 +4,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeFromBasket, selectBasketItems } from '../features/basketSlice'
 import { urlFor } from '../sanity'
 import Currency from 'react-currency-formatter';
+import { selectBasketItemsByCostumer, selectPerson } from '../features/splittedCheckSlice'
 
 
 const Splitter = () => {
-    const items = useSelector(selectBasketItems)
+    const items = useSelector(selectBasketItemsByCostumer)
     const dispatch = useDispatch()
+    const person = useSelector(selectPerson)
     const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([])
 
 
     useEffect(() => {
-        const groupedItems = items.reduce((results, item) => {
+        const groupedItems = person.items.reduce((results, item) => {
             (results[item.id] = results[item.id] || []).push(item);
             return results
         }, {});
@@ -30,7 +32,7 @@ const Splitter = () => {
                         key={key}
                         className='flex-row items-center space-x-3 bg-white py-2 px-5'
                     >
-                        <Text>{items.length} X</Text>
+                        <Text>{person.items.length} X</Text>
                         <Image
                             source={{
                                 uri: urlFor(items[0]?.image).url(),
