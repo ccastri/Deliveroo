@@ -19,6 +19,7 @@
     "expo": "~47.0.9",
     "expo-status-bar": "~1.4.2",
     "nativewind": "^2.0.11",
+    "next-expo": "^1.0.0",
     "react": "^18.1.0",
     "react-currency-formatter": "^1.1.0",
     "react-dom": "^18.1.0",
@@ -35,7 +36,8 @@
     "typescript": "^4.6.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@expo/next-adapter": "^5.0.0"
   },
   "private": true
 }

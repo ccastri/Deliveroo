@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView, Alert, Modal, Pressable, TextInput } from 'react-native'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromBasket, selectBasketItems, selectBasketTotal } from '../features/basketSlice'
@@ -8,41 +8,42 @@ import { XCircleIcon } from 'react-native-heroicons/outline'
 import { urlFor } from '../sanity'
 import Currency from 'react-currency-formatter';
 import Splitter from '../components/Splitter'
-// import { selectPerson } from '../features/splittedCheckSlice'
-
+import { selectPerson } from '../features/splittedCheckSlice'
 
 const BasketScreen = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const navigation = useNavigation()
     const dispatch = useDispatch();
     const restaurant = useSelector(selectRestaurant)
-    // const person = useSelector(selectPerson)
+    const person = useSelector(selectPerson)
+    console.log(person);
     const items = useSelector(selectBasketItems)
     const basketTotal = useSelector(selectBasketTotal)
     const [splittedCheck, setSplittedCheck] = useState({ ...items, pax: 0 })
     const paxNum = parseInt(splittedCheck.pax)
 
-
+    let personID = []
     const splitScreen = (index) => {
         let splittedScreen = []
-        let personID = []
         for (let i = 0; i < (index); i++) {
             [personID.push(i + 1)]
 
             splittedScreen.push(
                 <TouchableOpacity className='flex-1 w-full flex-row'
                     onPress={() => {
-                        navigation.navigate('SplittedBill'),
-                            { personID }
-                    }}
+                        navigation.navigate('SplittedBill')
+                    }
+                    }
                     key={i}>
                     <Text> Persona {i + 1}:</Text>
-                    <Splitter />
+                    <Splitter TableMembers={paxNum} />
                 </TouchableOpacity>)
         }
-        console.log(personID)
+
+
         return splittedScreen
     }
+
 
     return (
         <SafeAreaView className='flex-1 bg-white'>
@@ -81,10 +82,7 @@ const BasketScreen = () => {
                             <TouchableOpacity
                                 key={i}
                                 className='flex-row items-center space-x-3 bg-white py-2 px-5'
-                                onPress={() => {
-                                    // setIsPressed(!isPressed)
-                                }
-                                }
+                                onPress={() => { }}
                             >
                                 {/* <Text>{items.length} X</Text> */}
                                 <Image
@@ -110,10 +108,7 @@ const BasketScreen = () => {
                                         Remove
                                     </Text>
                                 </TouchableOpacity>
-                                {/* {isPressed && <TouchableOpacity
-                                >
-                                    <Text>Split</Text>
-                                </TouchableOpacity>} */}
+
                             </TouchableOpacity>
                         ))}
                     {/*          //*! I'm working here        */}

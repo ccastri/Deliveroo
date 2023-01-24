@@ -5,15 +5,21 @@ import { urlFor } from '../sanity';
 import { useDispatch, useSelector } from 'react-redux'
 import { addToBasket, removeFromBasket, selectBasketItemsById } from '../features/basketSlice';
 import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/outline';
-
+import { addToBasketByPerson, selectPerson, setPerson } from '../features/splittedCheckSlice'
 const DishRow = ({ id, name, description, price, image }) => {
 
     const [isPressed, setIsPressed] = useState(false)
     const dispatch = useDispatch()
 
     const items = useSelector(state => selectBasketItemsById(state, id))
+    const person = useSelector(selectPerson)
+    console.log(person)
+    const addItemToBasketByPerson = () => {
 
+        dispatch(addToBasketByPerson({ id, name, description, price, image }))
+    }
     const addItemToBasket = () => {
+
         dispatch(addToBasket({ id, name, description, price, image }))
     }
     const removeItemFromBasket = () => {
@@ -64,6 +70,14 @@ const DishRow = ({ id, name, description, price, image }) => {
                         <TouchableOpacity>
                             <PlusCircleIcon
                                 onPress={addItemToBasket}
+                                color='#00ccbb'
+                                size={40}
+                            />
+                        </TouchableOpacity>
+                        <Text>{person.items.length}</Text>
+                        <TouchableOpacity>
+                            <PlusCircleIcon
+                                onPress={addItemToBasketByPerson}
                                 color='#00ccbb'
                                 size={40}
                             />

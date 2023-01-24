@@ -3,12 +3,9 @@ import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { ArrowLeftIcon } from 'react-native-heroicons/outline'
 
+
 const SplittedBillScreen = () => {
     const navigation = useNavigation()
-    // const {
-    //     params: { acc },
-    // } = useRoute()
-    // console.log(acc)
     return (
         <SafeAreaView>
             <TouchableOpacity

@@ -3,13 +3,14 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     items: [],
 }
-
+// Lo otro que podemos hacer es setiar el item en cada iteracion para cada persona pero no se si igual al cambiar una cambiarian todas
 export const basketSlice = createSlice({
     name: 'basket',
     initialState,
     reducers: {
         addToBasket: (state, action) => {
             state.items = [...state.items, action.payload] //lo que sea que tenias mas lo nuevo que llegue x payload
+            // console.log(state.items)
         },
         removeFromBasket: (state, action) => {
             const index = state.items.findIndex(item => item.id === action.payload.id)

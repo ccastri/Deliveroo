@@ -6,7 +6,8 @@ import { urlFor } from '../sanity'
 // import { urlFor } from '../sanity'
 
 
-const RestaurantCard = ({ id,
+const RestaurantCard = ({
+    id,
     imgUrl,
     title,
     rating,
@@ -15,7 +16,8 @@ const RestaurantCard = ({ id,
     short_description,
     dishes,
     long,
-    lat, }) => {
+    lat,
+}) => {
     const navigation = useNavigation()
 
     return (

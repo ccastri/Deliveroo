@@ -8,9 +8,13 @@ import Currency from 'react-currency-formatter';
 
 const Splitter = ({ personID }) => {
     const items = useSelector(selectBasketItems)
-    const itemsByPerson = useSelector(selectBasketItems)
     const dispatch = useDispatch()
     const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([])
+
+    // ! CREO un conjunto de objetos que vienen del estado general de los objeetos en el store
+    // ! PREGUNTA: podriamos hacer que solamente cambie un componente local con un estado en vez de modificar item directamente?
+    // !Voy a mostrar los objetos organizados por indice (el ej dice id) en donde un array de objetos
+    //! tipo item o vacio van a ser los valores posibles para las instancias creadas con el reducer
     useEffect(() => {
         const groupedItems = items.reduce((results, item) => {
             (results[item.id] = results[item.id] || []).push(item);
@@ -18,10 +22,8 @@ const Splitter = ({ personID }) => {
         }, {});
 
         setGroupedItemsInBasket(groupedItems)
-        // console.log(groupedItemInBasket);
     }, [items])
-    // console.log(items)
-    // console.log(itemsByPerson)
+
     return (
         <View className='flex-1'>
 
