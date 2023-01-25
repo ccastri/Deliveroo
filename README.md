@@ -31,8 +31,7 @@ Also, if you rather try it directly from Expo:
 ![iOS QR code](https://user-images.githubusercontent.com/68607137/214677963-db633afa-8ff6-4c1b-8450-fe3e08cfbdaa.png)
 
 Now there are some pictures from the UI design implemented with react native:
-
-![HomeScreen](https://user-![deliveryInScreen](https://user-images.githubusercontent.com/68607137/214680870-231328fa-81ab-4a3c-9444-1ac661e45ecf.png)
+![HomeScreen](https://user-images.githubusercontent.com/68607137/214683215-071d895f-21c1-4bc1-a659-f08406d21c76.png)
 ![restaurantScreenByUser](https://user-images.githubusercontent.com/68607137/214682200-3a8e4ae1-9975-4214-8258-0fb5cb386f19.png)
 ![restaurantScreen](https://user-images.githubusercontent.com/68607137/214682102-30726036-39e4-4334-8a0b-4807a84c0f28.png)
 ![deliveryInScreen](https://user-images.githubusercontent.com/68607137/214682143-34f32a31-c847-4222-9b8e-4487f4d73a9c.png)
