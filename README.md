@@ -32,7 +32,8 @@ Also, if you rather try it directly from Expo:
 
 ![basketIconsRestaurantScreen](https://user-images.githubusercontent.com/68607137/214678377-d3dbdfdf-08bb-42e3-bfed-84172f34da81.jpg)
 ![deliveryInScreen](https://user-images.githubusercontent.com/68607137/214678439-42d5aad8-235a-4dcb-a0f4-895ff79d7551.jpg)
-![HomeScreen](https://user-images.githubusercontent.com/68607137/214678477-da0b9c59-a60d-4523-8940-1bcb11811e69.jpg)
+![HomeScreen](https://user-images.githubusercontent.com/68607137/214680043-e8bf2770-b347-4844-bf90-dc194dee498f.png)
+
 ![restaurantScreen](https://user-images.githubusercontent.com/68607137/214678504-9078193f-b037-4589-be07-8001a77a62c6.jpg)
 ![restaurantScreenByUser](https://user-images.githubusercontent.com/68607137/214678521-db740d2f-2857-4524-9913-3d0a0fbeddec.jpg)
 ![restaurantScreenWithoutCostumerName](https://user-images.githubusercontent.com/68607137/214678554-2b8486b6-d0fa-4735-8915-2910660c6037.jpg)
