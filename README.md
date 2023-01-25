@@ -23,6 +23,10 @@ Also, if you rather try it directly from Expo:
 
 ## Android
 ### Anybody can try it
+(https://user-images.githubusercontent.com/68607137/214677294-9ddf554e-3ec0-4a48-8ff5-83e807ca0f9a.png)
+
 
 ## iOS
 ### Reach me at anytime by the email and let me know you want to try it
+(https://user-images.githubusercontent.com/68607137/214677524-caa9ca63-046b-4e39-b13c-40cbeaa9086b.png)
+
