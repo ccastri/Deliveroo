@@ -1,10 +1,10 @@
 # Multi Restaurant platform (a react native implementation)
-The project has been developed based on my prior experience as a waiter on a local branch in Cali, Colombia. Is ment to allow workers to splitt orders by costumer's name because it's actually something pretty common and if you don't have a system to support yourself you that easy request by the costumer can give you a really hard time.
+The project has been developed based on my prior experience as a waiter on a local branch in Cali, Colombia. Is ment to allow workers to splitt orders by costumer's name which is something pretty common on a waiter/waitress daily basis. So if they don't have a good system to support theirselves on easy requests by the costumer like this it can give them a really hard time and the costumer experience can be less engaging than expected.
 It has been developped just as an educational pourpose and is not ment to get me any income by this time
 
 ## Libraries:
 react native
-@react-navigation
+[hobbit-hole] @react-navigation
 react-redux
 @reduxjs/toolkit
 @sanity/cli
