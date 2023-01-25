@@ -3,23 +3,20 @@ The project has been developed based on my prior experience as a waiter on a loc
 It has been developped just as an educational pourpose and is not ment to get me any income by this time
 
 ## Libraries:
-react native
-[hobbit-hole] @react-navigation
-react-redux
-@reduxjs/toolkit
-@sanity/cli
-@sanity/image-url
-typescript
-react-currency-formatter
-tailwindcss
-nativewind
-react-native-animatable
-react-native-heroicons
+- react native
+- @react-navigation
+- react-redux
+- @reduxjs/toolkit
+- @sanity/cli
+- @sanity/image-url
+- typescript
+- react-currency-formatter
+- tailwindcss
+- nativewind
+- react-native-animatable
+- react-native-heroicons
 
-Now that you got interested let's try the [downloading the apk](https://expo.dev/accounts/nocallerworld/projects/deliveroonew/builds/1fb2f8b0-33d4-4e1d-8cbb-5312ea47a72d) 
-to locally install it on your android.
-
-Also, if you rather try it directly from Expo:
+Now that you've got interested let's try [downloading the apk](https://expo.dev/accounts/nocallerworld/projects/deliveroonew/builds/1fb2f8b0-33d4-4e1d-8cbb-5312ea47a72d) to locally install it on your android. Also, if you rather, try it directly from Expo:
 
 ## Android
 ### Anybody can try it
@@ -27,7 +24,7 @@ Also, if you rather try it directly from Expo:
 
 
 ## iOS
-### Reach me at anytime by the email and let me know you want to try it
+### Reach me at anytime by the email __*camilocastrillon10@gmail.com*__ and let me know you want to try it
 ![iOS QR code](https://user-images.githubusercontent.com/68607137/214677963-db633afa-8ff6-4c1b-8450-fe3e08cfbdaa.png)
 
 Now there are some pictures from the UI design implemented with react native:
