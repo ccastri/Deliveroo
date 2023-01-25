@@ -35,7 +35,7 @@ Now there are some pictures from the UI design implemented with react native:
 ![HomeScreen](https://user-images.githubusercontent.com/68607137/214683215-071d895f-21c1-4bc1-a659-f08406d21c76.png)
 ![restaurantScreenByUser](https://user-images.githubusercontent.com/68607137/214682200-3a8e4ae1-9975-4214-8258-0fb5cb386f19.png)
 ![restaurantScreen](https://user-images.githubusercontent.com/68607137/214682102-30726036-39e4-4334-8a0b-4807a84c0f28.png)
+![basketScreen](https://user-images.githubusercontent.com/68607137/214685656-627bd5d5-770f-4f62-84a6-609b1b1cdbff.png)
+![basketPersonScreen](https://user-images.githubusercontent.com/68607137/214685661-e5cfd976-54d4-4c11-a441-29a84da66810.png)
 ![deliveryInScreen](https://user-images.githubusercontent.com/68607137/214682143-34f32a31-c847-4222-9b8e-4487f4d73a9c.png)
-
-
 
