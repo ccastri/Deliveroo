@@ -42,8 +42,12 @@ the total from the bill matches with the sum from each spefic costumer check
 ![restaurantScreen](https://user-images.githubusercontent.com/68607137/214682102-30726036-39e4-4334-8a0b-4807a84c0f28.png)
 ![restaurantScreenByUser](https://user-images.githubusercontent.com/68607137/214682200-3a8e4ae1-9975-4214-8258-0fb5cb386f19.png)
 ![basketIconsRestaurantScreen](https://user-images.githubusercontent.com/68607137/214686921-4d0892d3-349c-4f19-b156-b8147f5a72f8.png)
+
+Those are the different modal screens the waiter and the costumers can see boths check by presing either the buttons 
 ![basketScreen](https://user-images.githubusercontent.com/68607137/214685656-627bd5d5-770f-4f62-84a6-609b1b1cdbff.png)
 ![basketPersonScreen](https://user-images.githubusercontent.com/68607137/214685661-e5cfd976-54d4-4c11-a441-29a84da66810.png)
+
+Finally this screen is just to indicate how longer the order may take to be delivered on the table
 ![deliveryInScreen](https://user-images.githubusercontent.com/68607137/214682143-34f32a31-c847-4222-9b8e-4487f4d73a9c.png)
 
 
