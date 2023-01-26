@@ -51,7 +51,8 @@ Finally this screen is just to indicate how longer the order may take to be deli
 ![deliveryInScreen](https://user-images.githubusercontent.com/68607137/214682143-34f32a31-c847-4222-9b8e-4487f4d73a9c.png)
 
 
-#Final thoughts
+# Final thoughts
+
 As I've stablished earlier I do have hands on experience dealing with the waiter's costumer service so I know pretty well how struggling can be keep splitting check for a big table during the rush hour in the place. For instance at lunch time, around noon time the employers from surrounding areas nearby restaurants are starving, looking for a something good to eat __*as fastest as possible*__ and when multiple bigg groupes come into the picture I can tell you it's going to be a caos on the kitchen so it's really important to get a fresh and cold mind to be in control of your zone and acknowledge the situation when dealing with some difficult clients 
 so that you can earn some time by being emphatetic with them anddelivering the right food to the right costumer on every single case.
 But still you have to keep track of every single person which is ordering on your zone, if you get distracted they can leave the place without paying for anything and you'll be charged on their behalf. Now imagine you have a table with 15 people and all of them are willing to get their own splitted check... Rember you're still having another costumers on the rest of the tables in your zone:
