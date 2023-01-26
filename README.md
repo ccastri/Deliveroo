@@ -38,6 +38,7 @@ if you press on it once you should see the add/remove buttons and the item count
 if you press it again everything has to dissapear
 if you add some costumer's name you should see the count and the controls from it got duplicate. At the left there is the counter from the general check on the table (everybody's dishes will be accounted by this controls). at the right is going to be the controls for the particular costumer account (costumer in session) so he can set up his own splitted check far appart from the general table's check (His dishes will be counted in the general table as well on pourpose so the waiter can confirm
 the total from the bill matches with the sum from each spefic costumer check
+
 ![restaurantScreen](https://user-images.githubusercontent.com/68607137/214682102-30726036-39e4-4334-8a0b-4807a84c0f28.png)
 ![restaurantScreenByUser](https://user-images.githubusercontent.com/68607137/214682200-3a8e4ae1-9975-4214-8258-0fb5cb386f19.png)
 ![basketIconsRestaurantScreen](https://user-images.githubusercontent.com/68607137/214686921-4d0892d3-349c-4f19-b156-b8147f5a72f8.png)
