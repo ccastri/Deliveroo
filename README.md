@@ -68,3 +68,9 @@ group?
 -Are you good in maths to do the right calculations and keep getting your mind cold to keep everything under control?
 
 That's a brief example from the point of view from the inside of the restaurant when you go to eat something...
+
+
+
+https://user-images.githubusercontent.com/68607137/215144035-a949ec05-74e3-43fc-8be9-135567ca3c83.mp4
+
+
