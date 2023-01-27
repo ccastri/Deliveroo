@@ -1,7 +1,11 @@
 {
   "expo": {
     "name": "DeliverooNew",
-    "slug": "DeliverooNew",
+    "slug": "deliveroonew",
+    "owner": "nocallerworld",
+    "scheme": "com.ccastri.testingnewthoughts",
+    "originalFullName": "@nocallerworld/DeliverooNew",
+    "currentFullName": "@nocallerworld/DeliverooNew",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,22 +16,31 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/b6439a1b-ff67-495f-b3f5-a3314dfa959f"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ccastri.DeliverooNew"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.ccastri.DeliverooNew"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b6439a1b-ff67-495f-b3f5-a3314dfa959f"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

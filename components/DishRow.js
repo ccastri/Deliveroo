@@ -10,24 +10,26 @@ const DishRow = ({ id, name, description, price, image }) => {
 
     const [isPressed, setIsPressed] = useState(false)
     const dispatch = useDispatch()
-    console.log(id);
     const items = useSelector(state => selectBasketItemsById(state, id))
     const person = useSelector(selectPerson)
-
+    // Function to add products by person's name to the basket
     const addItemToBasketByPerson = () => {
         dispatch(addToBasketByPerson({ id, name, description, price, image }))
         dispatch(addToBasket({ id, name, description, price, image }))
     }
+    // Function to remove products by person's name to the basket
     const removeItemFromPersonalBasket = () => {
         if (!person.items.length > 0) {
             return;
         }
         dispatch(removeFromPersonalBasket({ id, name, description, price, image }))
     }
+    // Function to add products to the basket
     const addItemToBasket = () => {
 
         dispatch(addToBasket({ id, name, description, price, image }))
     }
+    // Function to remove products to the basket
     const removeItemFromBasket = () => {
         if (!items.length > 0) {
             return;
@@ -59,6 +61,7 @@ const DishRow = ({ id, name, description, price, image }) => {
                 </View>
             </TouchableOpacity>
             <View>
+                {/* To show the counter to add o delete the item to the basket */}
                 {isPressed &&
                     <View className='pl-2 flex-row items-center space-x-2'>
                         <TouchableOpacity>
@@ -77,6 +80,7 @@ const DishRow = ({ id, name, description, price, image }) => {
                                 size={40}
                             />
                         </TouchableOpacity>
+                        {/* To show the counter to add o delete the item to the basket */}
                         {person.tableMember && (
                             <View className='pl-2 flex-row items-center space-x-2'>
                                 <TouchableOpacity>
@@ -99,7 +103,6 @@ const DishRow = ({ id, name, description, price, image }) => {
                         )}
                     </View>
                 }
-
             </View>
         </>
     )

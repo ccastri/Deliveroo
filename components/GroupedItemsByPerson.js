@@ -7,26 +7,22 @@ import Currency from 'react-currency-formatter';
 import { selectBasketItemsByCostumer, selectPerson } from '../features/splittedCheckSlice'
 
 
-const GroupedItemsByPerson = ({ item }) => {
+const GroupedItemsByPerson = () => {
     const items = useSelector(selectBasketItemsByCostumer)
     const dispatch = useDispatch()
     const person = useSelector(selectPerson)
     const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([])
-
-    // console.log(groupedItems)
-    // console.log(id)
+    // Una forma de organizar el despliegue del listado de productos seleccionados por persona
     useEffect(() => {
         const groupedItems = person.items.reduce((results, item) => {
             (results[item.id] = results[item.id] || []).push(item);
             return results
         }, {});
-
         setGroupedItemsInBasket(groupedItems)
     }, [items])
 
     return (
         <View className='flex-1'>
-
             {
                 Object.entries(groupedItemsInBasket).map(([key, items]) => (
                     <View
@@ -52,8 +48,6 @@ const GroupedItemsByPerson = ({ item }) => {
                                 Remove
                             </Text>
                         </TouchableOpacity>
-
-                        {/* Remove from basket by person ID (index) */}
                     </View>
                 ))}
         </View>

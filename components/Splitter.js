@@ -10,14 +10,12 @@ const Splitter = () => {
     const items = useSelector(selectBasketItems)
     const dispatch = useDispatch()
     const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([])
-
-
+    // Una forma de organizar el despliegue del listado de productos seleccionados por persona
     useEffect(() => {
         const groupedItems = items.reduce((results, item) => {
             (results[item.id] = results[item.id] || []).push(item);
             return results
         }, {});
-
         setGroupedItemsInBasket(groupedItems)
     }, [items])
 
@@ -49,8 +47,6 @@ const Splitter = () => {
                                 Remove
                             </Text>
                         </TouchableOpacity>
-
-                        {/* Remove from basket by person ID (index) */}
                     </View>
                 ))}
         </View>

@@ -24,8 +24,7 @@ const FeaturedRow = ({ id, title, description }) => {
                     }
                 },
     }[0]`,
-            { id } //
-
+            { id }
         ).then(data => { setRestaurants(data?.restaurants) })
     }, [id])
 
@@ -42,10 +41,7 @@ const FeaturedRow = ({ id, title, description }) => {
                     paddingHorizontal: 25,
                 }}
                 className='pt-4'>
-
                 {restaurants?.map(restaurant => (
-
-
                     <RestaurantCard
                         key={restaurant._id} // number
                         id={restaurant._id} //string
@@ -53,68 +49,14 @@ const FeaturedRow = ({ id, title, description }) => {
                         title={restaurant.title} // string
                         rating={restaurant.rating} //number
                         genre={restaurant.type?.name} // string
-
                         address={restaurant.address} // string
                         short_description={restaurant.short_description} // string
                         dishes={restaurant.dishes} // string
                         long={restaurant.long} // number
                         lat={restaurant.lat} // number
-
                     />
                 ))
                 }
-                {/* <RestaurantCard
-                    key={1}
-                    id={10}
-                    imgUrl='https://links.papareact.com/gn7'
-                    title='pglo'
-                    rating={5}
-                    genre='pglo'
-                    address='pglo'
-                    short_description='pglo'
-                    dishes={[]}
-                    long={20}
-                    lat={0}
-                />
-                <RestaurantCard
-                    key={2}
-                    id={10}
-                    imgUrl='https://links.papareact.com/gn7'
-                    title='pglo'
-                    rating={5}
-                    genre='pglo'
-                    address='pglo'
-                    short_description='pglo'
-                    dishes={[]}
-                    long={20}
-                    lat={0}
-                />
-                <RestaurantCard
-                    key={4}
-                    id={10}
-                    imgUrl='https://links.papareact.com/gn7'
-                    title='pglo'
-                    rating={5}
-                    genre='pglo'
-                    address='pglo'
-                    short_description='pglo'
-                    dishes={[]}
-                    long={20}
-                    lat={0}
-                />
-                <RestaurantCard
-                    key={5}
-                    id={10}
-                    imgUrl='https://links.papareact.com/gn7'
-                    title='pglo'
-                    rating={5}
-                    genre='pglo'
-                    address='pglo'
-                    short_description='pglo'
-                    dishes={[]}
-                    long={20}
-                    lat={0}
-                /> */}
             </ScrollView>
         </View>
     )

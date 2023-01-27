@@ -1,13 +1,12 @@
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { useEffect, useLayoutEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, Image, ScrollView, Alert, Modal, Pressable, TextInput } from 'react-native'
+import { Alert, Image, Modal, Pressable, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { ArrowLeftIcon, ChevronRightIcon, MapPinIcon, QuestionMarkCircleIcon, StarIcon, UserPlusIcon } from 'react-native-heroicons/outline'
 import { useDispatch, useSelector } from 'react-redux'
 import BasketIcon from '../components/BasketIcon'
 import DishRow from '../components/DishRow'
-import { selectBasketItems, selectBasketItemsById } from '../features/basketSlice'
 import { setRestaurant } from '../features/restaurantSlice'
-import { selectPerson, selectPersonName, setPerson } from '../features/splittedCheckSlice'
+import { selectPerson, setPerson } from '../features/splittedCheckSlice'
 import { urlFor } from '../sanity'
 
 export default function RestaurantScreen() {
@@ -15,11 +14,9 @@ export default function RestaurantScreen() {
     const navigation = useNavigation()
     const [modalVisible, setModalVisible] = useState(false);
     const [tableMember, setTableMember] = useState(useSelector(selectPerson));
-
-    console.log(tableMember.tableMember)
+    // Recepcion de propiedades por parametros de cada restaurante
     const {
         params: {
-
             id,
             imgUrl,
             title,
@@ -32,7 +29,7 @@ export default function RestaurantScreen() {
             lat,
         },
     } = useRoute()
-
+    // Envio parametros al store para ser usados en el restaurant slice
     useEffect(() => {
         dispatch(setRestaurant({
             id,
@@ -55,6 +52,7 @@ export default function RestaurantScreen() {
     }, [])
     return (
         <>
+            {/* Boton para el modal del bill por persona */}
             <BasketIcon
                 onPress={() => { navigation.navigate('Basket') }} />
             <ScrollView>
@@ -86,7 +84,6 @@ export default function RestaurantScreen() {
                                 <Text className='text-xs text-gray-500'>Nearby · {address}</Text>
                             </View>
                         </View>
-                        {/* {console.log({ short_description })} */}
                         <Text className='text-gray-500 mt-2 pb-4'>{short_description}</Text>
                     </View>
                     <TouchableOpacity className=' flex-row items-center space-x-2 p-4 border-y border-gray-300'>
@@ -96,6 +93,7 @@ export default function RestaurantScreen() {
                     </TouchableOpacity>
                 </View>
                 <View className='relative flex-1 justify-center items-center h-[50px]  m-4'>
+                    {/* Modal para añadir el nombre del cliente */}
                     <Modal
                         animationType="slide"
                         transparent={true}
@@ -110,7 +108,6 @@ export default function RestaurantScreen() {
                                 <Text>What's the costumer's name?</Text>
                                 <TextInput
                                     type='text'
-                                    // keyboardType='numeric'
                                     placeholder={`Add a the costumer's to split accounts`}
                                     value={tableMember.tableMember}
                                     onChangeText={(text) => setTableMember({ ...tableMember, tableMember: text })}
@@ -135,6 +132,7 @@ export default function RestaurantScreen() {
                         <Text className='text-white'> Split the bill</Text>
                     </Pressable>
                 </View>
+                {/* Row de cada producto disponible en el restaurante */}
                 <View className='pb-36'>
                     <Text className='px-4 pt-6 mb-3 font-bold text-xl'>Menu</Text>
                     {

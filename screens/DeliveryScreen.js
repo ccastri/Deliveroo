@@ -17,7 +17,6 @@ const DeliveryScreen = () => {
                         <XMarkIcon color='white' size={30} />
                     </TouchableOpacity>
                 </View>
-
                 <View className='bg-white mx-5 my-2 rounded-md p-6 z-50 shadow-md'>
                     <View>
                         <Text className='text-lg text-gray-400'>Estimated Arrival</Text>

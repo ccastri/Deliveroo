@@ -35,10 +35,6 @@ const HomeScreen = () => {
 
         <SafeAreaView className='border border-lime-500 bg-white ' >
             <View className='' >
-                {/* {
-                    console.log(featuredCategories)
-
-                } */}
                 {/* Header */}
                 <View View className=' mb-0 flex-row items-center space-x-2 mx-4 pt-4 ' >
                     <Image
@@ -80,33 +76,16 @@ const HomeScreen = () => {
                 showsHorizontalScrollIndicator={false}>
                 {/* categories */}
                 <Categories />
-
-                {/* Featured Rows */}
+                {/* Featured Rows: Different ways for displaying the restaurant lists */}
                 {featuredCategories?.map(category => (
-
-
                     <FeaturedRow
                         key={category._id}
                         id={category._id}
                         title={category.name}
                         description={category.short_description}
                     />
-
                 ))}
-
-                {/* <FeaturedRow
-                    id="1"
-                    title='Tasty Discounts'
-                    description='Pegueloooo'
-                />
-                <FeaturedRow
-                    id="1"
-                    title='Offers near you!'
-                    description='Pegueloooo'
-                /> */}
-
             </ScrollView>
-
         </SafeAreaView>
     )
 }
