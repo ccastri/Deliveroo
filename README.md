@@ -16,6 +16,8 @@ It has been developped just as an educational pourpose and is not ment to get me
 - react-native-animatable
 - react-native-heroicons
 
+After __clonning / forking__ the project you can use __*npx expo start*__ if you'd like to run it on development mode. If you want to level it up and make a push request to add some features please __*BEFORE MAKING A PUSH REQUEST*__ make sure everything is working fine on production mode by running __*npx expo start --no-dev --minify*__. I'd really appreciate any contribution and new feature you'd like to add and any buggs you can detect please create the issue so I can work on it rightaway
+
 Now that you've got interested let's try [downloading the apk](https://expo.dev/accounts/nocallerworld/projects/deliveroonew/builds/1fb2f8b0-33d4-4e1d-8cbb-5312ea47a72d) to locally install it on your android. Also, if you rather, try it directly from Expo:
 
 ## Android
